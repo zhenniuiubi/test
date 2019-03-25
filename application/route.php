@@ -11,4 +11,4 @@
 
 use think\Route;
 
-Route::get('test','index/index/test');
+Route::get('student/:id','index/Student/getStudent');

@@ -4,6 +4,7 @@ namespace app\index\controller;
 
 use think\Controller;
 use think\Request;
+use app\index\validate\StudentValidate;
 
 class Student extends Controller
 {
@@ -14,7 +15,11 @@ class Student extends Controller
      */
     public function getStudent($id)
     {
-        return $id;
+        $data = ['id'=>$id];
+        $validate = new StudentValidate();
+        if (!$validate->check($data)) {
+            dump($validate);
+        }
     }
 
     /**

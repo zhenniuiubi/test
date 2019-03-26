@@ -15,11 +15,7 @@ class Student extends Controller
      */
     public function getStudent($id)
     {
-        $data = ['id'=>$id];
-        $validate = new StudentValidate();
-        if (!$validate->check($data)) {
-            dump($validate);
-        }
+        (new StudentValidate())->goCheck($id);
     }
 
     /**

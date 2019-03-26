@@ -1,9 +1,9 @@
 <?php
 namespace app\index\validate;
 
-use think\Validate;
+use app\index\validate;
 
-class StudentValidate extends Validate
+class StudentValidate extends BaseValidate
 {
     protected $rule = [
         'id' => 'require|number'

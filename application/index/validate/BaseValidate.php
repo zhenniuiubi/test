@@ -14,7 +14,11 @@ class BaseValidate extends Validate
         $result = $this->batch()->check($param);
         if (!$result) {
             $err = $this->error;
-            dump($err);
+            throw new \Exception($err);
+
+            //TODO: 完成抛出异常
+        }else{
+            return;
         }
     }
 }

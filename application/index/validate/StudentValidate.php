@@ -11,4 +11,5 @@ class StudentValidate extends BaseValidate
     protected $message = [
         'id' => '请输入正确的ID'
     ];
+    //TODO:测试
 }

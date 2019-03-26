@@ -9,16 +9,14 @@ class BaseValidate extends Validate
     public function goCheck()
     {
         $request = Request::instance();
-        $param = $request->param();
+        $params = $request->param();
 
-        $result = $this->batch()->check($param);
+        $result = $this->check($params);
         if (!$result) {
             $err = $this->error;
             throw new \Exception($err);
-
-            //TODO: 完成抛出异常
-        }else{
-            return;
+        } else {
+            return true;
         }
     }
 }

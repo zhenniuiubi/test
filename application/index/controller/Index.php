@@ -8,7 +8,8 @@ class Index
 {
     public function index()
     {
-        //
+        $res = Student::with('score')->select();
+        dump($res->toArray());
     }
 
     public function test()

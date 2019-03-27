@@ -18,7 +18,7 @@ class Student extends Controller
     public function getStudent($id)
     {
         (new StudentValidate())->goCheck($id);
-        $students = StudentModel::getStudentById();
+        $students = StudentModel::getStudentById($id);
         if (!$students) {
             throw new StudentMissException();
         }

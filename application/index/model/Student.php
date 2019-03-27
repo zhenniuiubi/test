@@ -11,8 +11,9 @@ class Student extends Model
         return $this->hasMany('score', 's_id', 's_id');
     }
 
-    public static function getStudentById()
+    public static function getStudentById($id)
     {
-        return null;
+        // halt(self::get($id));
+        return self::get($id);
     }
 }

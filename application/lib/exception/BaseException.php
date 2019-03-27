@@ -1,8 +1,7 @@
 <?php
+namespace app\lib\exception;
 
-use think\Exception;
-
-class BaseException
+class BaseException extends \Exception
 {
     //HTTP状态码
     protected $code = '400';

@@ -6,10 +6,9 @@ use think\Request;
 
 class ExceptionHandler extends Handle
 {
-    protected $code;
-    protected $msg;
-    
-    protected $errorCode;
+    private $code;
+    private $msg;
+    private $errorCode;
 
     public function render(\Exception $e)
     {
@@ -19,7 +18,7 @@ class ExceptionHandler extends Handle
             $this->msg = $e->msg;
             $this->errorCode = $e->errorCode;
         } else {
-            $this->code = '500';
+            $this->code = 500;
             $this->msg = '服务器内部错误';
             $this->errorCode = 999;
         }

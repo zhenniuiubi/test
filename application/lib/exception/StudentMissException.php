@@ -1,9 +1,9 @@
 <?php
 namespace app\lib\exception;
 
-use think\Exception;
+use app\lib\exception\BaseException;
 
-class StudentMissException extends Exception
+class StudentMissException extends BaseException
 {
     //HTTP状态码
     protected $code = '400';

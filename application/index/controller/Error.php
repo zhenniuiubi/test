@@ -4,27 +4,17 @@ namespace app\index\controller;
 
 use think\Controller;
 use think\Request;
-use app\index\validate\StudentValidate;
-use app\index\model\Student as StudentModel;
-use app\lib\exception\StudentMissException;
 
-class Student extends Controller
+class Error extends Controller
 {
     /**
      * 显示资源列表
      *
      * @return \think\Response
      */
-    public function getStudent($id)
+    public function index()
     {
-        (new StudentValidate())->goCheck($id);
-        $students = StudentModel::with('score')
-            ->where('s_id','>','02')
-            ->select();
-        if (!$students) {
-            throw new StudentMissException();
-        }
-        return $students;
+        return 0;
     }
 
     /**

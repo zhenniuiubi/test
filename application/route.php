@@ -12,3 +12,10 @@
 use think\Route;
 
 Route::get('student/:id','index/Student/getStudent');
+
+
+
+//空模块
+return [
+    '__miss__' => ['index/index/index',['method'=>'get']]
+];

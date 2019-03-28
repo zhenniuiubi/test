@@ -27,7 +27,7 @@ class ExceptionHandler extends Handle
                 $this->msg = '服务器内部错误';
                 $this->errorCode = 999;
             }
-            $this->recordErrorLog();
+            $this->recordErrorLog($e);
         }
         $request = Request::instance();
 

@@ -4,13 +4,16 @@ use think\Db;
 use app\index\model\Student;
 use app\index\model\TestTbGrade;
 use app\index\validate\StudentValidate;
-class Index
+use think\Controller;
+class Index extends Controller
 {
+    public function _empty()
+    {
+        $this->error('index');
+    }
     public function index()
     {
-        // $res = Student::with('score')->select();
-        // dump($res->toArray());
-        (new StudentValidate())->goCheck();
+        return $this->display('hello');
     }
 
     public function test()

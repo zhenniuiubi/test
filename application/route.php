@@ -12,6 +12,7 @@
 use think\Route;
 
 Route::get('Banner/:id', 'index/Banner/getBanner');
+Route::get('theme', 'index/Theme/getSimpleList');
 
 
 

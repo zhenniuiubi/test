@@ -4,25 +4,32 @@ namespace app\index\controller;
 
 use think\Controller;
 use think\Request;
-use app\index\validate\BannerValidate;
-use app\index\model\Banner as BannerModel;
-use app\lib\exception\BannerMissException;
+use app\index\validate\IDCollectionValidate;
+use app\index\model\Theme as ThemeModel;
 
-class Banner extends Controller
+class Theme extends Controller
 {
     /**
      * 显示资源列表
      *
      * @return \think\Response
      */
-    public function getBanner($id)
+    public function index()
     {
-        (new BannerValidate())->goCheck($id);
-        $students = BannerModel::with('score')->find();
-        if (!$students) {
-            throw new BannerMissException();
-        }
-        return $students;
+        //
+    }
+
+    /**
+     * @url/theme?ids=ids1,ids2,ids3
+     * @return 一组theme模型
+     */
+
+    public function getSimpleList($ids='')
+    {
+        (new IDCollectionValidate())->goCheck($ids);
+        $ids = explode(',', $ids);
+        $result = ThemeModel::with('topicImg,headImg')->select($ids);
+        return $result;
     }
 
     /**

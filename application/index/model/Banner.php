@@ -2,10 +2,9 @@
 
 namespace app\index\model;
 
-use think\Model;
-use think\Config;
+use app\index\model\BaseModel;
 
-class Banner extends Model
+class Banner extends BaseModel
 {
     protected $hidden = ['s_id'];
     public function score()
@@ -15,12 +14,11 @@ class Banner extends Model
 
     public static function getBannerById($id)
     {
-        // halt(self::get($id));
         return self::get($id);
     }
 
-    public function getUrlAttr($value)
+    public function getUrlAttr($value, $data)
     {
-        return Config::get('config.prefix').$value;
+        return $this->imgUrlPrefix($value, $data);
     }
 }

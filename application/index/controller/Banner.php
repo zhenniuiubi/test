@@ -19,7 +19,7 @@ class Banner extends Controller
     {
         (new BannerValidate())->goCheck($id);
         $students = BannerModel::with('score')->find();
-        if (!$students) {
+        if ($students->isEmpty()) {
             throw new BannerMissException();
         }
         return $students;

@@ -9,14 +9,14 @@ class IDCollectionValidate extends BaseValidate
         'ids' => 'require|checkIDs'
     ];
     protected $message = [
-        'ids.checkIDs' => 'ID必须为正数',
+        'ids.checkIDs' => 'ID必须为整数',
     ];
 
     protected function checkIDs($value)
     {
         $ids = explode(',', $value);
         foreach ($ids as $v) {
-            if (is_int($v)) {
+            if (is_numeric($v)) {
                 return true;
             } else {
                 return false;

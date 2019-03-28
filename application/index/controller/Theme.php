@@ -6,6 +6,7 @@ use think\Controller;
 use think\Request;
 use app\index\validate\IDCollectionValidate;
 use app\index\model\Theme as ThemeModel;
+use app\lib\exception\ThemeMissException;
 
 class Theme extends Controller
 {
@@ -29,6 +30,9 @@ class Theme extends Controller
         (new IDCollectionValidate())->goCheck($ids);
         $ids = explode(',', $ids);
         $result = ThemeModel::with('topicImg,headImg')->select($ids);
+        if ($result->isEmpty()) {
+            throw new ThemeMissException();
+        }
         return $result;
     }
 

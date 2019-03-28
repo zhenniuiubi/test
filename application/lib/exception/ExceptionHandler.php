@@ -5,6 +5,7 @@ use think\exception\Handle;
 use think\Request;
 use think\Log;
 use think\Config;
+
 class ExceptionHandler extends Handle
 {
     private $code;
@@ -22,7 +23,7 @@ class ExceptionHandler extends Handle
             if (Config::get('app.debug')) {
                 //生产模式
                 parent::render($e);
-            }else{
+            } else {
                 $this->code = 500;
                 $this->msg = '服务器内部错误';
                 $this->errorCode = 999;
@@ -50,6 +51,6 @@ class ExceptionHandler extends Handle
             'level' => ['sql'],
         ]);
         
-        Log::record($e->getMessage(),'error');
+        Log::record($e->getMessage(), 'error');
     }
 }

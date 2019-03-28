@@ -6,5 +6,5 @@ use think\Model;
 
 class Score extends Model
 {
-    protected $hidden = ['s_id'];
+    // protected $hidden = ['s_id'];
 }

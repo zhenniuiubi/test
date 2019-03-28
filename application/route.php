@@ -11,7 +11,7 @@
 
 use think\Route;
 
-Route::get('student/:id','index/Student/getStudent');
+Route::get('Banner/:id', 'index/Banner/getBanner');
 
 
 

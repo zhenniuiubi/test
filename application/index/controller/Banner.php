@@ -4,25 +4,23 @@ namespace app\index\controller;
 
 use think\Controller;
 use think\Request;
-use app\index\validate\StudentValidate;
-use app\index\model\Student as StudentModel;
-use app\lib\exception\StudentMissException;
+use app\index\validate\BannerValidate;
+use app\index\model\Banner as BannerModel;
+use app\lib\exception\BannerMissException;
 
-class Student extends Controller
+class Banner extends Controller
 {
     /**
      * 显示资源列表
      *
      * @return \think\Response
      */
-    public function getStudent($id)
+    public function getBanner($id)
     {
-        (new StudentValidate())->goCheck($id);
-        $students = StudentModel::with('score')
-            ->where('s_id','>','02')
-            ->select();
+        (new BannerValidate())->goCheck($id);
+        $students = BannerModel::with('score')->select();
         if (!$students) {
-            throw new StudentMissException();
+            throw new BannerMissException();
         }
         return $students;
     }

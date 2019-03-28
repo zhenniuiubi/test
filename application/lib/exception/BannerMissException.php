@@ -3,7 +3,7 @@ namespace app\lib\exception;
 
 use app\lib\exception\BaseException;
 
-class StudentMissException extends BaseException
+class BannerMissException extends BaseException
 {
     //HTTP状态码
     public $code = '400';

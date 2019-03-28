@@ -1,7 +1,7 @@
 <?php
 namespace app\index\controller;
 use think\Db;
-use app\index\model\Student;
+use app\index\model\Banner;
 use app\index\model\TestTbGrade;
 use app\index\validate\StudentValidate;
 use think\Controller;

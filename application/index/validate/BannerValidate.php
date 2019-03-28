@@ -3,7 +3,7 @@ namespace app\index\validate;
 
 use app\index\validate;
 
-class StudentValidate extends BaseValidate
+class BannerValidate extends BaseValidate
 {
     protected $rule = [
         'id' => 'require|number'

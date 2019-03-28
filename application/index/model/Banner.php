@@ -5,7 +5,7 @@ namespace app\index\model;
 use think\Model;
 use think\Config;
 
-class Student extends Model
+class Banner extends Model
 {
     protected $hidden = ['s_id'];
     public function score()
@@ -13,13 +13,13 @@ class Student extends Model
         return $this->hasMany('score', 's_id', 's_id');
     }
 
-    public static function getStudentById($id)
+    public static function getBannerById($id)
     {
         // halt(self::get($id));
         return self::get($id);
     }
 
-    public function getSNameAttr($value)
+    public function getUrlAttr($value)
     {
         return Config::get('config.prefix').$value;
     }

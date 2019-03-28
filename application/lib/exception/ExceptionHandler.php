@@ -4,7 +4,6 @@ namespace app\lib\exception;
 use think\exception\Handle;
 use think\Request;
 use think\Log;
-use think\Config;
 
 class ExceptionHandler extends Handle
 {
@@ -20,9 +19,10 @@ class ExceptionHandler extends Handle
             $this->msg = $e->msg;
             $this->errorCode = $e->errorCode;
         } else {
-            if (Config::get('app.debug')) {
+            // dump(config('app_debug'));die;
+            if (config('app_debug')) {
                 //生产模式
-                parent::render($e);
+                return parent::render($e);
             } else {
                 $this->code = 500;
                 $this->msg = '服务器内部错误';
